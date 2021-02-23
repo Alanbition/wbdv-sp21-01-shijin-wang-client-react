@@ -1,0 +1,21 @@
+.course-row-title{
+    color:black;
+    margin-left:10px;
+}
+
+.course-row-title i{
+    color:black;
+    padding-left:30%;
+}
+
+.course-row-owner{
+    padding-right:10%;
+}
+
+.course-row-date{
+    padding-right:10%;
+}
+
+.course-row-edit{
+    padding-right:10%;
+}

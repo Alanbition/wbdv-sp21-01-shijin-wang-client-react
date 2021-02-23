@@ -1,11 +1,16 @@
+
 .wbdv-cm-body{
     /*background-color:#4d4d4d;*/
-
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 100%;
 }
 
 .wbdv-sticky-top {
     background-color:#1a1a1a;
     padding: 10px;
+    margin-left: 0;
+    margin-right: 0;
     position: fixed;
     width: 100%;
     z-index: 2;
@@ -18,59 +23,54 @@
     top: 4px;
     color:#e67300;
 }
+
 .wbdv-nav-title {
     font-weight:bold;
     font-size: 20px;
-    top:4px;
+    top:1px;
     color:#e67300;
     display:inline-block;
 }
 
 .wbdv-nav-plus-logo{
-    top:4px;
-    right:15px;
+    top:5px;
+    right:1px;
     color:#e67300;
 }
 
 
-
-.wbdv-header-top{
-    background-color:#333333;
-    /*font-size: 15px;*/
-    position: fixed;
-    top:58px;
-    width: 100%;
-    padding:10px;
-    z-index: 1;
-    white-space: nowrap;
-    color:white;
+.thead-theme{
+    background-color:#262626;
 }
 
-.wbdv-header-text{
-    z-index:3;
+
+.wbdv-header-top{
+    /*background-color:#333333;*/
+    position: fixed;
     font-size: 15px;
+    top:53px;
+    width: 100%;
+    z-index: 2;
+    /*white-space: nowrap;*/
+    color:white;
+    font-weight:bold;
+}
+.table th{
+    border:  none;
+    /*border: white solid 2px;*/
 }
 
 .wbdv-header-title{
-    top:-20px;
     color:white;
-    display:inline-block;
 }
 .wbdv-header-belong{
-    top:-20px;
     color:white;
-    display:inline-block;
 }
 .wbdv-header-modified{
-    top:-20px;
     color:white;
-    display:inline-block;
 }
 .wbdv-header-view{
-    right:0px;
-    top:-20px;
     color:white;
-    display:inline-block;
 }
 
 
@@ -111,7 +111,7 @@
 .wbdv-bottom-plus{
     color: #e67300;
     text-align:right;
-    right:60px;
+    right:170px;
     bottom: 30px;
     z-index:1000;
 }

@@ -76,11 +76,12 @@ class CourseManager extends React.Component {
 
     render() {
         return(
-            <body className="wbdv-cm-body">
+            <div className="container-fluid p-0">
+                {/*<div className="row no-gutters" >*/}
                 <div className="wbdv-sticky-top">
-                    <div className="row">
-                        <div className="col wbdv-nav-hbg-logo">
-                            <i className="fas fa-bars fa-2x"></i>
+                    <div className="row" >
+                        <div className="col">
+                            <i className="fas fa-bars fa-2x wbdv-nav-hbg-logo"></i>
                         </div>
                         <div className="col-2 d-none d-lg-block wbdv-nav-title">
                             Course Manager
@@ -94,11 +95,14 @@ class CourseManager extends React.Component {
                             />
                         </div>
 
-                        <div className="col-1 wbdv-nav-plus-logo">
-                            <a className="fas fa-plus fa-2x" role="button" onClick={this.addCourse}></a>
+                        <div className="col-1">
+                            <a className="fas fa-plus fa-2x wbdv-nav-plus-logo" role="button" onClick={this.addCourse}></a>
                         </div>
                     </div>
                 </div>
+            {/*</div>*/}
+
+
 
                 {/*<Link to="/">*/}
                 {/*    <i className="fas fa-2x fa-home float-right"></i>*/}
@@ -132,10 +136,10 @@ class CourseManager extends React.Component {
                 {/*       render={(props) => <CourseEditor props={props}/>}>*/}
                 {/*</Route>*/}
 
-                <div className="fixed-bottom wbdv-bottom-plus">
-                    <a className="fas fa-plus fa-4x" role="button" onClick={this.addCourse}></a>
+                <div >
+                    <a className="fas fa-plus fa-4x fixed-bottom wbdv-bottom-plus" role="button" onClick={this.addCourse}></a>
                 </div>
-            </body>
+            </div>
         )
     }
 }

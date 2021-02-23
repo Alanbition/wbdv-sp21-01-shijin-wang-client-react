@@ -32,10 +32,14 @@ const CourseRow = (
 
     return (
         <tr>
-            <td>
+            <td className="text-left course-row-title">
                 {
                     !editing &&
-                    <Link to="/courses/editor">
+                    <i className="fas fa-file"></i>
+                }
+                {
+                    !editing &&
+                    <Link className="course-row-title" to="/courses/editor">
                         {course.title}
                     </Link>
                 }
@@ -47,12 +51,12 @@ const CourseRow = (
                         className="form-control"/>
                 }
             </td>
-            <td>{owner}</td>
-            <td>{lastModified}</td>
-            <td>
-                {!editing && <i onClick={() => setEditing(true)} className="fas fa-edit fa-2x float-right"></i>}
-                {editing && <i onClick={() => saveTitle()} className="fas fa-check fa-2x float-right"></i>}
-                {editing && <i onClick={() => {deleteCourse(course); setEditing(false);}} className="fas fa-trash fa-2x float-right"></i>}
+            <td className="d-none d-sm-table-cell text-center course-row-owner">{owner}</td>
+            <td className="d-none d-lg-table-cell text-center course-row-date"> {lastModified}</td>
+            <td className="text-center course-row-edit">
+                {!editing && <i onClick={() => setEditing(true)} className="fas fa-edit fa-2x text-center"></i>}
+                {editing && <i onClick={() => saveTitle()} className="fas fa-check fa-2x text-center "></i>}
+                {editing && <i onClick={() => {deleteCourse(course); setEditing(false);}} className="fas fa-times fa-2x text-center"></i>}
             </td>
         </tr>
     )

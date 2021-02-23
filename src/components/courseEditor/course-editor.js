@@ -5,31 +5,29 @@ import "./course-editor-style.css";
 // const CourseEditor = ({props}) =>
 const CourseEditor = ({history}) =>
     <div>
-        <h2>
-            <Link to="/courses/table">
-                <i className="fas fa-arrow-left"></i>
-            </Link>
-            Course Editor
-            <i onClick={() => history.goBack()}
-               className="fas fa-times float-right"></i>
-            {/*<i onClick={() => props.history.goBack()}*/}
-            {/*   className="fas fa-times float-right"></i>*/}
-        </h2>
+        {/*<h2>*/}
+        {/*    <Link to="/courses/table">*/}
+        {/*        <i className="fas fa-arrow-left"></i>*/}
+        {/*    </Link>*/}
+        {/*    Course Editor*/}
+        {/*    <i onClick={() => history.goBack()}*/}
+        {/*       className="fas fa-times float-right"></i>*/}
+        {/*    /!*<i onClick={() => props.history.goBack()}*!/*/}
+        {/*    /!*   className="fas fa-times float-right"></i>*!/*/}
+        {/*</h2>*/}
+
+
         <div className="wbdv-sticky-top">
             <div className="row">
+                <div className="col-1">
+                    <i onClick={() => history.goBack()}
+                       className="fas fa-times fa-2x wbdv-header-back-btn"></i>
                 <div className="col-3 wbdv-nav-title">
-                    CS5610 - WebDev
+                    Course Editor
                 </div>
                 <div className="col"></div>
-                <div className="col-1">
-                    <a className="fas fa-times fa-2x wbdv-header-back-btn"
-                       href="../courseManager/courseManager.template.client.html" role="button">
-                    </a>
                 </div>
             </div>
-        </div>
-
-        <div className="wbdv-left-background">
         </div>
 
         <div className="container wbdv-container-position">
