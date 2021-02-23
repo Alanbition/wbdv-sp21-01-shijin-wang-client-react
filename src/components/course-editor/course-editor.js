@@ -4,7 +4,7 @@ import "./course-editor-style.css";
 
 // const CourseEditor = ({props}) =>
 const CourseEditor = ({history}) =>
-    <body className="wbdv-editor-body">
+    <div className="wbdv-editor-body">
         {/*<h2>*/}
         {/*    <Link to="/courses/table">*/}
         {/*        <i className="fas fa-arrow-left"></i>*/}
@@ -120,6 +120,6 @@ const CourseEditor = ({history}) =>
             </div>
         </div>
 
-    </body>
+    </div>
 
 export default CourseEditor

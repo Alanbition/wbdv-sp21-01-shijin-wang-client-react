@@ -1,8 +1,8 @@
 import React from 'react'
-import CourseCard from "../courseCard/course-card";
+import CourseCard from "./course-card/course-card";
 import {Link} from "react-router-dom";
 import {deleteCourse, updateCourse} from "../../services/course-service";
-import CourseRow from "../courseRow/course-row";
+import CourseRow from "../course-table/course-row/course-row";
 import "./course-gird-style.css";
 
 const CourseGrid = ({updateCourse, deleteCourse, courses}) =>

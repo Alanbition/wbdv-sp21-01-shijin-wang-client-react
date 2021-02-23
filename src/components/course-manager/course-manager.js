@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
-import CourseTable from "../courseTable/course-table";
-import CourseGrid from "../courseGrid/course-grid";
-import CourseEditor from "../courseEditor/course-editor";
+import CourseTable from "../course-table/course-table";
+import CourseGrid from "../course-grid/course-grid";
+import CourseEditor from "../course-editor/course-editor";
 import {Link, Route} from "react-router-dom";
 import courseService, {findAllCourses, deleteCourse} from "../../services/course-service";
 import './course-manager-style.css';
@@ -43,8 +43,15 @@ class CourseManager extends React.Component {
     }
 
     addCourse = () => {
+        if (this.state.courseName === ""){
+            var titleName= "New Course"
+            console.log("no name")
+        }else{
+            var titleName=this.state.courseName
+        }
+
         const newCourse = {
-            title: this.state.courseName,
+            title: titleName,
             owner: "Me",
             lastModified: "Current Time"
         }
