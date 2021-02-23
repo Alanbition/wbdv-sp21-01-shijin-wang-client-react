@@ -109,7 +109,7 @@ class CourseManager extends React.Component {
                 {/*</Link>*/}
                 {/*<h1>Course Manager</h1>*/}
                 {/*<button onClick={this.addCourse}>Add Course</button>*/}
-                <div className="">
+                <div>
                     <Route path="/courses/table">
                         <CourseTable
                             updateCourse={this.updateCourse}
@@ -124,11 +124,16 @@ class CourseManager extends React.Component {
                             deleteCourse={this.deleteCourse}
                             courses={this.state.courses}/>
                     </Route>
+                    <div >
+                        <a className="fas fa-plus fa-4x fixed-bottom wbdv-bottom-plus" role="button" onClick={this.addCourse}></a>
+                    </div>
+
+                </div>
+                <div>
                     <Route path="/courses/editor"
                            render={(props) => <CourseEditor {...props}/>}>
                     </Route>
                 </div>
-
                 {/*<Route path="/courses/editor">*/}
                 {/*    <CourseEditor/>*/}
                 {/*</Route>*/}
@@ -136,9 +141,6 @@ class CourseManager extends React.Component {
                 {/*       render={(props) => <CourseEditor props={props}/>}>*/}
                 {/*</Route>*/}
 
-                <div >
-                    <a className="fas fa-plus fa-4x fixed-bottom wbdv-bottom-plus" role="button" onClick={this.addCourse}></a>
-                </div>
             </div>
         )
     }

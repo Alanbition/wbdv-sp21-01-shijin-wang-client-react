@@ -32,7 +32,7 @@ const CourseCard = (
                     {/*<h5 className="card-title">{course.title}</h5>*/}
                     {
                         !editing &&
-                        <Link to="/courses/editor">
+                        <Link className="card-body-title" to="/courses/editor">
                             {course.title}
                         </Link>
                     }
@@ -46,8 +46,8 @@ const CourseCard = (
                     <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's
                         content.</p>
                     <img src={``}/>
-                    <Link to="/courses/editor" className="btn btn-primary">
-                        {course.title}
+                    <Link to="/courses/editor" className="btn btn-dark">
+                        Enter Course
                     </Link>
                     {!editing && <i onClick={() => setEditing(true)} className="fas fa-edit fa-2x float-right"></i>}
                     {editing && <i onClick={() => saveTitle()} className="fas fa-check fa-2x float-right"></i>}

@@ -4,7 +4,7 @@ import "./course-editor-style.css";
 
 // const CourseEditor = ({props}) =>
 const CourseEditor = ({history}) =>
-    <div>
+    <body className="wbdv-editor-body">
         {/*<h2>*/}
         {/*    <Link to="/courses/table">*/}
         {/*        <i className="fas fa-arrow-left"></i>*/}
@@ -19,14 +19,14 @@ const CourseEditor = ({history}) =>
 
         <div className="wbdv-sticky-top">
             <div className="row">
-                <div className="col-1">
+                <div className="col-1 wbdv-header-back-btn">
                     <i onClick={() => history.goBack()}
-                       className="fas fa-times fa-2x wbdv-header-back-btn"></i>
-                <div className="col-3 wbdv-nav-title">
+                       className="fas fa-times fa-2x "></i>
+                </div>
+                <div className="col-3 wbdv-editor-nav-title">
                     Course Editor
                 </div>
                 <div className="col"></div>
-                </div>
             </div>
         </div>
 
@@ -65,8 +65,6 @@ const CourseEditor = ({history}) =>
                         <li className="list-group-item wbdv-group-add" align="center">
                             <i className="fas fa-plus"></i>
                         </li>
-
-
                     </ul>
                 </div>
                 <div className="col-8">
@@ -122,6 +120,6 @@ const CourseEditor = ({history}) =>
             </div>
         </div>
 
-    </div>
+    </body>
 
 export default CourseEditor
