@@ -47,7 +47,7 @@ const CourseCard = (
                         content.</p>
                     <img src={``}/>
                     <Link to="/courses/editor" className="btn btn-dark">
-                        Enter Course
+                        Enter
                     </Link>
                     {!editing && <i onClick={() => setEditing(true)} className="fas fa-edit fa-2x float-right"></i>}
                     {editing && <i onClick={() => saveTitle()} className="fas fa-check fa-2x float-right"></i>}
