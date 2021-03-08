@@ -84,7 +84,6 @@ class CourseManager extends React.Component {
     render() {
         return(
             <div className="container-fluid p-0">
-                {/*<div className="row no-gutters" >*/}
                 <div className="wbdv-sticky-top">
                     <div className="row" >
                         <div className="col">
@@ -101,21 +100,11 @@ class CourseManager extends React.Component {
                                    value={this.state.courseName}
                             />
                         </div>
-
                         <div className="col-1">
                             <a className="fas fa-plus fa-2x wbdv-nav-plus-logo" role="button" onClick={this.addCourse}></a>
                         </div>
                     </div>
                 </div>
-            {/*</div>*/}
-
-
-
-                {/*<Link to="/">*/}
-                {/*    <i className="fas fa-2x fa-home float-right"></i>*/}
-                {/*</Link>*/}
-                {/*<h1>Course Manager</h1>*/}
-                {/*<button onClick={this.addCourse}>Add Course</button>*/}
                 <div>
                     <Route path="/courses/table">
                         <CourseTable
@@ -137,11 +126,18 @@ class CourseManager extends React.Component {
                             <a className="fas fa-plus fa-4x fixed-bottom wbdv-bottom-plus" role="button" onClick={this.addCourse}></a>
                         </div>
                     </Route>
-                    <Route path="/courses/editor"
+                </div>
+                <div>
+                    <Route path={[
+                        "/courses/:layout/edit/:courseId",
+                        "/courses/:layout/edit/:courseId/modules/:moduleId",
+                        "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId"]}
+                           exact={true}
                            render={(props) => <CourseEditor {...props}/>}>
                     </Route>
 
                 </div>
+
                 {/*<Route path="/courses/editor">*/}
                 {/*    <CourseEditor/>*/}
                 {/*</Route>*/}

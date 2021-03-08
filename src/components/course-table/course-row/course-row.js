@@ -39,7 +39,7 @@ const CourseRow = (
                 }
                 {
                     !editing &&
-                    <Link className="course-row-title" to="/courses/editor">
+                    <Link className="course-row-title" to={`/courses/table/edit/${course._id}`}>
                         {course.title}
                     </Link>
                 }
