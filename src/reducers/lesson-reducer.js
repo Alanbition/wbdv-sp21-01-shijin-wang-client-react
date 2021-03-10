@@ -5,13 +5,14 @@ const initialState = {
 const lessonReducer = (state=initialState, action) => {
     switch (action.type) {
         case "CREATE_LESSON":
-            return {
-                ...state,
+            const newState = {
+                // ...state,
                 lessons: [
                     ...state.lessons,
                     action.lesson
                 ]
             }
+            return newState
         case "FIND_LESSONS_FOR_MODULE":
             return {
                 ...state,
@@ -29,7 +30,7 @@ const lessonReducer = (state=initialState, action) => {
                 })
             }
             return newState1
-        case "UPDATE_LESSONS":
+        case "UPDATE_LESSON":
             return {
                 lessons: state.lessons.map(m => {
                     if(m._id === action.lesson._id) {

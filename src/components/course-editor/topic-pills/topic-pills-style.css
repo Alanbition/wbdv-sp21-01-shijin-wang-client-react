@@ -1,0 +1,37 @@
+.topic-pills-title{
+    color:white;
+}
+
+.topic-plus{
+    color:white;
+    padding-left:10px;
+    padding-top:5px;
+}
+
+.nav-pills> .nav-item.active{
+    background-color: #666666;
+    border-color:  #e67300;
+}
+
+.nav-pills > .nav-item {
+    background-color: #808080;
+    border-color:  #e67300;
+}
+
+.nav-pills > .nav-item > .nav-link{
+    background-color: #808080;
+    border-color:  #808080;
+    color:white;
+}
+
+.nav-pills > .nav-item.active > .nav-link.active{
+    background-color: #666666;
+    border-color:  #e67300;
+}
+.wbdv-tab-background{
+    color:white;
+}
+
+.nav-pills > .nav-item > .nav-link > .edit-icon {
+    padding-left:20px;
+}

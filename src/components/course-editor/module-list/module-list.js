@@ -3,6 +3,9 @@ import {connect, Provider} from "react-redux";
 import EditableItem from "../editable-item";
 import {useParams} from "react-router-dom";
 import moduleService from "../../../services/module-service"
+import lessonService from "../../../services/lesson-service"
+import topicService from "../../../services/topic-service"
+import "./module-list-style.css"
 
 const ModuleList = (
     {
@@ -15,30 +18,31 @@ const ModuleList = (
     const {layout, courseId, moduleId} = useParams();
     useEffect(() => {
         // alert(courseId)
+        console.log("LOAD Course : !!!!!!!!" + courseId)
         findModulesForCourse(courseId)
     }, [])
     return(
         <div>
-            <h2>Modules</h2>
-            <ul>
-                <li>layout: {layout}</li>
-                <li>courseId: {courseId}</li>
-                <li>moduleId: {moduleId}</li>
-            </ul>
+            <h2 className={"module-list-title"}>Modules</h2>
+            {/*<ul>*/}
+            {/*    <li>layout: {layout}</li>*/}
+            {/*    <li>courseId: {courseId}</li>*/}
+            {/*    <li>moduleId: {moduleId}</li>*/}
+            {/*</ul>*/}
             <ul className="list-group">
                 {
                     myModules.map(module =>
-                        <li className={`list-group-item ${module._id === moduleId ? 'active' : ''}`}>
+                        <li className={`list-group-item wbdv-group-background d-flex justify-content-between align-items-center ${module._id === moduleId ? 'active' : ''}`}>
                             <EditableItem
                                 to={`/courses/${layout}/edit/${courseId}/modules/${module._id}`}
                                 updateItem={updateModule}
                                 deleteItem={deleteModule}
-                                active={true}
+                                // active={true}
                                 item={module}/>
                         </li>
                     )
                 }
-                <li className="list-group-item">
+                <li className="list-group-item wbdv-group-add" align="center">
                     <i onClick={() => createModule(courseId)} className="fas fa-plus fa-2x"></i>
                 </li>
             </ul>
@@ -76,6 +80,16 @@ const dtpm = (dispatch) => {
                 .then(theModules => dispatch({
                     type: "FIND_MODULES_FOR_COURSE",
                     modules: theModules
+                }))
+            lessonService.findLessonsForModule(undefined)
+                .then(lessons => dispatch({
+                    type: "FIND_LESSONS_FOR_MODULE",
+                    lessons: lessons
+                }))
+            topicService.findTopicsForLesson(undefined)
+                .then(topics => dispatch({
+                    type: "FIND_TOPICS_FOR_LESSON",
+                    topics: topics
                 }))
         }
     }

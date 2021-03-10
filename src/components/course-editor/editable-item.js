@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {Link} from "react-router-dom";
+import "./editable-item-style.css";
 
 const EditableItem = (
     {
@@ -10,16 +11,16 @@ const EditableItem = (
         active
     }) => {
     const [editing, setEditing] = useState(false)
-    const [cachedItem, setCahedItem] = useState(item)
+    const [cachedItem, setCachedItem] = useState(item)
     return (
         <>
             {
                 !editing &&
                 <>
-                    <Link className={`nav-link ${active?'active':''}`} to={to}>
-                        {item.title} {JSON.stringify(active)}
+                    <Link className={`nav-link ${active?'active':''} wbdv-tab-font `} to={to}>
+                        {item.title}
                     </Link>
-                    <i onClick={() => setEditing(true)} className="fas fa-edit"></i>
+                    <span onClick={() => setEditing(true)} className="edit-icon fas fa-edit pull-right"></span>
                 </>
             }
             {
@@ -27,16 +28,13 @@ const EditableItem = (
                 <>
                     <input
                         onChange={(e) =>
-                            setCahedItem({
+                            setCachedItem({
                                 ...cachedItem,
                                 title: e.target.value
                             })}
                         value={cachedItem.title}/>
-                    <i onClick={() => {
-                        setEditing(false)
-                        updateItem(cachedItem)
-                    }} className="fas fa-check"></i>
-                    <i onClick={() => deleteItem(item)} className="fas fa-times"></i>
+                    <span onClick={() => {setEditing(false); updateItem(cachedItem);}} className="edit-icon pull-right fas fa-check"></span>
+                    <span onClick={() => {setEditing(false); deleteItem(item); }} className="edit-icon pull-right fas fa-times"></span>
                 </>
             }
         </>

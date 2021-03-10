@@ -5,13 +5,14 @@ const initialState = {
 const topicReducer = (state=initialState, action) => {
     switch (action.type) {
         case "CREATE_TOPIC":
-            return {
-                ...state,
+            const newState=  {
+                // ...state,
                 topics: [
                     ...state.topics,
                     action.topic
                 ]
             }
+            return newState
         case "FIND_TOPICS_FOR_LESSON":
             return {
                 ...state,
@@ -38,6 +39,11 @@ const topicReducer = (state=initialState, action) => {
                         return m
                     }
                 })
+            }
+        case "CLEAN_TOPIC":
+            return {
+                ...state,
+                topics:[]
             }
         default:
             return state

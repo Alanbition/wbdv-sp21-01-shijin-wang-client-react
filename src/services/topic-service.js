@@ -3,7 +3,7 @@ const TOPIC_URL = "https://wbdv-generic-server.herokuapp.com/api/001052126/topic
 
 
 export const createTopic = (lessonId, topic) =>
-    fetch(`${LESSON_URL}/${lessonId}/lessons`, {
+    fetch(`${LESSON_URL}/${lessonId}/topics`, {
         method: "POST",
         body: JSON.stringify(topic),
         headers: {
@@ -13,7 +13,7 @@ export const createTopic = (lessonId, topic) =>
         .then(response => response.json())
 
 export const findTopicsForLesson = (lessonId) =>
-    fetch(`${LESSON_URL}/${lessonId}/lessons`)
+    fetch(`${LESSON_URL}/${lessonId}/topics`)
         .then(response => response.json())
 
 

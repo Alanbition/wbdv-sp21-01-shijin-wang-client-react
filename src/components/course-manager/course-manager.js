@@ -84,59 +84,77 @@ class CourseManager extends React.Component {
     render() {
         return(
             <div className="container-fluid p-0">
-                <div className="wbdv-sticky-top">
-                    <div className="row" >
-                        <div className="col">
-                            <i className="fas fa-bars fa-2x wbdv-nav-hbg-logo"></i>
-                        </div>
-                        <div className="col-2 d-none d-lg-block wbdv-nav-title">
-                            Course Manager
-                        </div>
-                        <div className="col-8">
-                            <input type="text"
-                                   className="form-control"
-                                   // onChange={(event) => setNewTitle(event.target.value)}
-                                    onChange={evt => this.addCourseWithName(evt)}
-                                   value={this.state.courseName}
-                            />
-                        </div>
-                        <div className="col-1">
-                            <a className="fas fa-plus fa-2x wbdv-nav-plus-logo" role="button" onClick={this.addCourse}></a>
+
+                <Route path="/courses/table" exact={true}>
+                    <div className="wbdv-sticky-top">
+                        <div className="row" >
+                            <div className="col">
+                                <i className="fas fa-bars fa-2x wbdv-nav-hbg-logo"></i>
+                            </div>
+                            <div className="col-2 d-none d-lg-block wbdv-nav-title">
+                                Course Manager
+                            </div>
+                            <div className="col-8">
+                                <input type="text"
+                                       className="form-control"
+                                    // onChange={(event) => setNewTitle(event.target.value)}
+                                       onChange={evt => this.addCourseWithName(evt)}
+                                       value={this.state.courseName}
+                                />
+                            </div>
+                            <div className="col-1">
+                                <a className="fas fa-plus fa-2x wbdv-nav-plus-logo" role="button" onClick={this.addCourse}></a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div>
-                    <Route path="/courses/table">
-                        <CourseTable
-                            updateCourse={this.updateCourse}
-                            deleteCourse={this.deleteCourse}
-                            courses={this.state.courses}/>
-                        <div >
-                            <a className="fas fa-plus fa-4x fixed-bottom wbdv-bottom-plus" role="button" onClick={this.addCourse}></a>
+                    <CourseTable
+                        updateCourse={this.updateCourse}
+                        deleteCourse={this.deleteCourse}
+                        courses={this.state.courses}/>
+                    <div >
+                        <a className="fas fa-plus fa-4x fixed-bottom wbdv-bottom-plus" role="button" onClick={this.addCourse}></a>
+                    </div>
+                </Route>
+                <Route path="/courses/grid" exact={true}>
+                    <div className="wbdv-sticky-top">
+                        <div className="row" >
+                            <div className="col">
+                                <i className="fas fa-bars fa-2x wbdv-nav-hbg-logo"></i>
+                            </div>
+                            <div className="col-2 d-none d-lg-block wbdv-nav-title">
+                                Course Manager
+                            </div>
+                            <div className="col-8">
+                                <input type="text"
+                                       className="form-control"
+                                    // onChange={(event) => setNewTitle(event.target.value)}
+                                       onChange={evt => this.addCourseWithName(evt)}
+                                       value={this.state.courseName}
+                                />
+                            </div>
+                            <div className="col-1">
+                                <a className="fas fa-plus fa-2x wbdv-nav-plus-logo" role="button" onClick={this.addCourse}></a>
+                            </div>
                         </div>
-                    </Route>
-                    <Route path="/courses/grid">
-                        <CourseGrid
-                            // updateCourse={this.updateCourse}
-                            // deleteCourse={this.deleteCourse}
-                            updateCourse={this.updateCourse}
-                            deleteCourse={this.deleteCourse}
-                            courses={this.state.courses}/>
-                        <div >
-                            <a className="fas fa-plus fa-4x fixed-bottom wbdv-bottom-plus" role="button" onClick={this.addCourse}></a>
-                        </div>
-                    </Route>
-                </div>
-                <div>
-                    <Route path={[
-                        "/courses/:layout/edit/:courseId",
-                        "/courses/:layout/edit/:courseId/modules/:moduleId",
-                        "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId"]}
-                           exact={true}
-                           render={(props) => <CourseEditor {...props}/>}>
-                    </Route>
-
-                </div>
+                    </div>
+                    <CourseGrid
+                        // updateCourse={this.updateCourse}
+                        // deleteCourse={this.deleteCourse}
+                        updateCourse={this.updateCourse}
+                        deleteCourse={this.deleteCourse}
+                        courses={this.state.courses}/>
+                    <div >
+                        <a className="fas fa-plus fa-4x fixed-bottom wbdv-bottom-plus" role="button" onClick={this.addCourse}></a>
+                    </div>
+                </Route>
+                <Route path={[
+                    "/courses/:layout/edit/:courseId",
+                    "/courses/:layout/edit/:courseId/modules/:moduleId",
+                    "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId",
+                    "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId/topics/:topicId"]}
+                       exact={true}
+                       render={(props) => <CourseEditor {...props}/>}>
+                </Route>
 
                 {/*<Route path="/courses/editor">*/}
                 {/*    <CourseEditor/>*/}
@@ -146,7 +164,10 @@ class CourseManager extends React.Component {
                 {/*</Route>*/}
 
             </div>
-        )
+
+
+
+    )
     }
 }
 

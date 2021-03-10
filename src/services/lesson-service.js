@@ -26,7 +26,7 @@ export const findLessonsForModule = (moduleId) =>
 export const updateLesson = (lessonId, lesson) =>
     fetch(`${LESSON_URL}/${lessonId}`, {
         method: "PUT",
-        body: JSON.stringify(module),
+        body: JSON.stringify(lesson),
         headers: {
             'content-type': 'application/json'
         }

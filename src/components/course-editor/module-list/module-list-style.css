@@ -1,0 +1,11 @@
+.module-list-title{
+    color:white;
+}
+.list-group > .active{
+    background-color: #666666;
+    border-color:  #e67300;
+}
+
+.list-group-item > .nav-link > .edit-icon {
+    padding-left:180px;
+}
