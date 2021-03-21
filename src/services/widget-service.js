@@ -1,5 +1,5 @@
-const TOPIC_URL = "http://localhost:8080/api/topics";
-const WIDGET_URL = "http://localhost:8080/api/widgets";
+const TOPIC_URL = process.env.REACT_APP_TOPIC_URL;
+const WIDGET_URL = process.env.REACT_APP_WIDGET_URL;
 
 export const createWidget = (topicId, widget) =>
     fetch(`${TOPIC_URL}/${topicId}/widgets`, {
