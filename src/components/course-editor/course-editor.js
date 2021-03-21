@@ -5,20 +5,23 @@ import {combineReducers, createStore} from "redux";
 import moduleReducer from "../../reducers/module-reducer";
 import lessonReducer from "../../reducers/lesson-reducer";
 import topicReducer from "../../reducers/topic-reducer";
-import courseReducer from "../../reducers/course-reducer"
+import courseReducer from "../../reducers/course-reducer";
+import widgetReducer from  "../../reducers/widget-reducer";
 import {connect, Provider} from "react-redux";
 import ModuleList from "./module-list/module-list";
 import LessonTabs from "./lesson-tabs/lesson-tabs";
 import TopicPills from "./topic-pills/topic-pills";
 import courseService from "../../services/course-service"
 import lessonService from "../../services/lesson-service";
+import WidgetList from "./widgets/widget-list";
 
 
 const reducer = combineReducers({
     moduleReducer: moduleReducer,
     lessonReducer: lessonReducer,
     topicReducer: topicReducer,
-    courseReducer: courseReducer
+    courseReducer: courseReducer,
+    widgetReducer: widgetReducer
 })
 
 const store = createStore(reducer)
@@ -80,7 +83,10 @@ const CourseEditor = ({history, params}) => {
                         </div>
                         <div className="col-8">
                             <LessonTabs/>
+                            <br/>
                             <TopicPills/>
+                            <br/>
+                            <WidgetList/>
                             {/*<ul className="nav nav-pills">*/}
                             {/*    <li className="nav-item ">*/}
                             {/*        <a className="nav-link active wbdv-tab-font" aria-current="page" href="#">*/}

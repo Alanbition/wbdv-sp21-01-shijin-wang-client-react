@@ -12,7 +12,9 @@ class CourseManager extends React.Component {
         console.log(props)
         this.state = {
             courses: [],
-            courseName: ""
+            courseName: "",
+            avocado: 0,
+            bm: 51
         }
     }
     deleteCourse = (course) => {
@@ -78,8 +80,6 @@ class CourseManager extends React.Component {
             courseName: evt.target.value
         })
     }
-
-
 
     render() {
         return(
@@ -162,6 +162,7 @@ class CourseManager extends React.Component {
                 {/*<Route path="/courses/editor"*/}
                 {/*       render={(props) => <CourseEditor props={props}/>}>*/}
                 {/*</Route>*/}
+
 
             </div>
 
