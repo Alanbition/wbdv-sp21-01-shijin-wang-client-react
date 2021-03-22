@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import HeadingWidget from "./heading-widget";
 import ParagraphWidget from "./paragraph-widget";
+import WrapperWidgetType from "./widget-type";
 import {useParams} from "react-router-dom"
 import widgetService from "../../../services/widget-service";
 import {connect} from "react-redux";
@@ -64,21 +65,28 @@ const WidgetList = (
                 {
                     myWidgets.map(_widget =>
                         <li key={_widget.id} className="widget-background list-group-item  list-group-item-action flex-column">
+                            {
+                                (_widget.type === "HEADING" ||  _widget.type === "PARAGRAPH") &&
+                                <WrapperWidgetType
+                                    InnerUpdateWidget={updateWidget}
+                                    InnerDeleteWidget={deleteWidget}
+                                    InnerWidget={_widget}/>
+                            }
 
-                            {
-                                _widget.type === "HEADING" &&
-                                <HeadingWidget
-                                    updateItem={updateWidget}
-                                    deleteItem={deleteWidget}
-                                    widget={_widget}/>
-                            }
-                            {
-                                _widget.type === "PARAGRAPH" &&
-                                <ParagraphWidget
-                                    updateItem={updateWidget}
-                                    deleteItem={deleteWidget}
-                                    widget={_widget}/>
-                            }
+                            {/*{*/}
+                            {/*    _widget.type === "HEADING" &&*/}
+                            {/*    <HeadingWidget*/}
+                            {/*        updateItem={updateWidget}*/}
+                            {/*        deleteItem={deleteWidget}*/}
+                            {/*        widget={_widget}/>*/}
+                            {/*}*/}
+                            {/*{*/}
+                            {/*    _widget.type === "PARAGRAPH" &&*/}
+                            {/*    <ParagraphWidget*/}
+                            {/*        updateItem={updateWidget}*/}
+                            {/*        deleteItem={deleteWidget}*/}
+                            {/*        widget={_widget}/>*/}
+                            {/*}*/}
                         </li>
                     )
                 }
