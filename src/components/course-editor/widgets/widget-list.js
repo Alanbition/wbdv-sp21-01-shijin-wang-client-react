@@ -66,27 +66,13 @@ const WidgetList = (
                     myWidgets.map(_widget =>
                         <li key={_widget.id} className="widget-background list-group-item  list-group-item-action flex-column">
                             {
-                                (_widget.type === "HEADING" ||  _widget.type === "PARAGRAPH") &&
+                                // (_widget.type === "HEADING" ||  _widget.type === "PARAGRAPH") &&
                                 <WrapperWidgetType
                                     InnerUpdateWidget={updateWidget}
                                     InnerDeleteWidget={deleteWidget}
                                     InnerWidget={_widget}/>
                             }
 
-                            {/*{*/}
-                            {/*    _widget.type === "HEADING" &&*/}
-                            {/*    <HeadingWidget*/}
-                            {/*        updateItem={updateWidget}*/}
-                            {/*        deleteItem={deleteWidget}*/}
-                            {/*        widget={_widget}/>*/}
-                            {/*}*/}
-                            {/*{*/}
-                            {/*    _widget.type === "PARAGRAPH" &&*/}
-                            {/*    <ParagraphWidget*/}
-                            {/*        updateItem={updateWidget}*/}
-                            {/*        deleteItem={deleteWidget}*/}
-                            {/*        widget={_widget}/>*/}
-                            {/*}*/}
                         </li>
                     )
                 }
@@ -120,7 +106,7 @@ const dtpm = (dispatch) => {
                 }))
         },
         deleteWidget: (item) => {
-            console.log("DELTE WIDGET: " + item.id)
+            console.log("DELETE WIDGET: " + item.id + "Text: " + item.text)
             widgetService.deleteWidget(item.id)
                 .then(status => dispatch({
                     type: "DELETE_WIDGET",
@@ -128,6 +114,7 @@ const dtpm = (dispatch) => {
                 }))
         },
         updateWidget: (widget) => {
+            console.log("Update WIDGET: " + widget.id + "Text: " + widget.text + "Type: " + widget.type)
             widgetService.updateWidget(widget.id, widget)
                 .then(status => dispatch({
                     type: "UPDATE_WIDGET",
