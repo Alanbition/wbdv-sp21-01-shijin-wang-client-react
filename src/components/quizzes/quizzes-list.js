@@ -1,19 +1,22 @@
 import React, {useState, useEffect} from "react";
 import {Link, useParams} from "react-router-dom";
+import quizService from "../../services/quiz-service"
 
 const QuizzesList = () => {
     const {courseId} = useParams();
     const [quizzes, setQuizzes] = useState([])
     useEffect(() => {
-        // TODO: implement this in a separate service file
-        fetch("http://localhost:3000/api/quizzes")
-            .then(response => response.json())
+        quizService.findAllQuiz()
             .then((quizzes) => {
                 setQuizzes(quizzes)
             })
     }, [])
     return(
         <div>
+            <Link to={`/courses/table`}>
+                <i role={"btn"}
+                   className="wbdv-header-back-btn fas fa-times fa-2x "></i>
+            </Link>
             <h2>Quizzes</h2>
             <div className="list-group">
                 {

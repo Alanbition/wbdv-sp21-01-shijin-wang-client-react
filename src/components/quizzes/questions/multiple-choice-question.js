@@ -29,11 +29,11 @@ const MultipleChoiceQuestion = ({question}) => {
                                 <label><input onClick={() => {setYourAnswer(choice);}}
                                               type="radio" name={question._id}/> {choice}</label>
                                 {
-                                    graded && choice === question.correct &&
+                                    graded && choice === question.correct && yourAnswer === choice &&
                                     <i className="fas fa-check correct float-right" ></i>
                                 }
                                 {
-                                    graded && choice !== question.correct && graded && yourAnswer === choice &&
+                                    graded && choice !== question.correct && yourAnswer === choice &&
                                     <i className="fas fa-times false float-right"></i>
                                 }
                                 {
@@ -53,7 +53,6 @@ const MultipleChoiceQuestion = ({question}) => {
                 !graded && <p>Your answer: </p>
             }
 
-            <p>{question.correct}</p>
 
             <a onClick={() => {setGraded(true);setYourChoice(question._id)}} className="btn btn-success" href="#" role="button">Grade</a>
 

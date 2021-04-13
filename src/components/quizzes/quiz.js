@@ -1,19 +1,23 @@
 import React, {useState, useEffect} from "react";
-import {useParams} from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
 import Question from "./questions/question";
+import questionService from "../../services/quiz-service"
 
 const Quiz = () => {
     const {courseId, quizId} = useParams();
     const [questions, setQuestions] = useState([]);
     useEffect(() => {
         // TODO: move this to a service file
-        fetch(`http://localhost:3000/api/quizzes/${quizId}/questions`)
-            .then(response => response.json())
+        questionService.findQuestionsForQuiz(quizId)
             .then(questions => setQuestions(questions))
     },[])
 
     return(
         <div>
+            <Link to={`/courses/table`}>
+                <i role={"btn"}
+                   className="wbdv-header-back-btn fas fa-times fa-2x "></i>
+            </Link>
             <h2>Quiz {quizId}</h2>
             <ul>
                 {
