@@ -53,6 +53,11 @@ const CourseRow = (
             </td>
             <td className="d-none d-sm-table-cell text-center course-row-owner">{owner}</td>
             <td className="d-none d-lg-table-cell text-center course-row-date"> {lastModified}</td>
+            <td>
+                <Link to={`/courses/${course._id}/quizzes`}>
+                    Quizzes
+                </Link>
+            </td>
             <td className="text-center course-row-edit">
                 {!editing && <i onClick={() => setEditing(true)} className="fas fa-edit fa-2x text-center"></i>}
                 {editing && <i onClick={() => saveTitle()} className="fas fa-check fa-2x text-center "></i>}
