@@ -1,5 +1,16 @@
 const QUIZ_URL = "http://localhost:3000/api/quizzes";
 
+export const submitQuiz = (quizId, questions) =>
+    // console.log("quizId: "+ quizId+ " "+questions.correct)
+    fetch(`${QUIZ_URL}/${quizId}/attempts`, {
+        method: 'POST',
+        body: JSON.stringify(questions),
+        headers: {
+            'content-type': 'application/json'
+        }
+    }).then(response => response.json())
+        // .then(result => console.log(result))
+
 
 
 export const findAllQuiz = () =>
@@ -12,6 +23,6 @@ export const findQuestionsForQuiz = (quizId) =>
 
 
 const api = {
-    findAllQuiz, findQuestionsForQuiz
+    findAllQuiz, findQuestionsForQuiz, submitQuiz
 }
 export default api

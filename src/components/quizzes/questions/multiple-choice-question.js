@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 import {Link} from "react-router-dom";
 import './question-css.css';
-const MultipleChoiceQuestion = ({question}) => {
+import quizService from "../../../services/quiz-service";
+const MultipleChoiceQuestion = ({question, quizId}) => {
     const [yourAnswer, setYourAnswer] = useState("")
     const [yourChoice, setYourChoice] = useState("")
     const [graded, setGraded] = useState(false)
@@ -47,7 +48,7 @@ const MultipleChoiceQuestion = ({question}) => {
                 }
             </ul>
             {
-                graded && <p>Your answer: {yourAnswer}</p>
+                graded && <p>Your answer: {question.answer = yourAnswer}</p>
             }
             {
                 !graded && <p>Your answer: </p>

@@ -1,6 +1,7 @@
 import React, {useState} from "react";
+import quizService from "../../../services/quiz-service"
 
-const TrueFalseQuestion = ({question}) => {
+const TrueFalseQuestion = ({question, quizId}) => {
     const [yourAnswer, setYourAnswer] = useState("")
     const [graded, setGraded] = useState(false)
     return (
@@ -55,12 +56,11 @@ const TrueFalseQuestion = ({question}) => {
                 </li>
             </ul>
             {
-                graded && <p>Your answer: {yourAnswer}</p>
-            }
+                graded && <p>Your answer: {question.answer = yourAnswer}</p>            }
             {
                 !graded && <p>Your answer: </p>
             }
-            <a onClick={() => {setGraded(true);}} className="btn btn-success" href="#" role="button">Grade</a>
+            <a onClick={() => {setGraded(true)}} className="btn btn-success" href="#" role="button">Grade</a>
         </div>
     )
 }
